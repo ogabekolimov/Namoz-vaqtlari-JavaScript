@@ -16,7 +16,17 @@ function renderData(malumot){
     tbody.textContent = ""
     let timings = malumot.data.timings
     for(let item in timings){
-        console.log(item, timings[item])
+        let newTrElement = document.createElement('tr')
+        let newNameElement = document.createElement('td')
+        let newTimeElement = document.createElement('td')
+
+        newNameElement.textContent = item
+        newTimeElement.textContent = timings[item]
+
+        newTrElement.appendChild(newNameElement)
+        newTrElement.appendChild(newTimeElement)
+        
+        tbody.appendChild(newTrElement)
     }
     
 }
