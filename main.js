@@ -1,16 +1,24 @@
+const selectElement = document.querySelector(".city")
+
+selectElement.addEventListener('change', evt =>{
+    getData(evt.target.value)
+})
+
+getData("Tashkent")
 
 
-getData('http://api.aladhan.com/v1/timingsByAddress?address=Tashkent&school=2')
-
-
-async function getData (url){
-    let response = await fetch(url)
+async function getData (shahar){
+    let response = await fetch('http://api.aladhan.com/v1/timingsByAddress?address=${shahar}&school=1')
     let encoding = await response.json()
     renderData(encoding)
 }
 
 
 const tbody = document.querySelector('.tbody')
+
+let obj = {
+    x: 1
+}
 
 function renderData(malumot){
     tbody.textContent = ""
