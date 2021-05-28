@@ -1,4 +1,6 @@
-const selectElement = document.querySelector(".city")
+let selectElement = document.querySelector(".city")
+let mainElement = document.querySelector(".main_text")
+
 
 selectElement.addEventListener('change', evt =>{
     getData(evt.target.value)
@@ -8,6 +10,7 @@ getData("Tashkent")
 
 
 async function getData (shahar){
+    mainElement.textContent = '${shahar}ning namoz vaqtlari'
     let response = await fetch('http://api.aladhan.com/v1/timingsByAddress?address=${shahar}&school=1')
     let encoding = await response.json()
     renderData(encoding)
@@ -16,9 +19,7 @@ async function getData (shahar){
 
 const tbody = document.querySelector('.tbody')
 
-let obj = {
-    x: 1
-}
+
 
 function renderData(malumot){
     tbody.textContent = ""
