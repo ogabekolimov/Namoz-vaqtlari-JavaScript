@@ -10,8 +10,8 @@ getData("Tashkent")
 
 
 async function getData (shahar){
-    mainElement.textContent = '${shahar}ning namoz vaqtlari'
-    let response = await fetch('http://api.aladhan.com/v1/timingsByAddress?address=${shahar}&school=1')
+    mainElement.textContent = `${shahar}ning namoz vaqtlari`
+    let response = await fetch(`http://api.aladhan.com/v1/timingsByAddress?address=${shahar}&school=1`)
     let encoding = await response.json()
     renderData(encoding)
 }
